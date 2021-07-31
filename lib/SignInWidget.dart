@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:mm_flutter_app/LoginPage.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -11,8 +12,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     // User Data
-    final String name = 'John Singh';
-    final String image = 'https://i.pinimg.com/originals/8b/46/cf/8b46cf84783518585170e6442a757570.jpg';
+
 
 
 
@@ -28,19 +28,24 @@ class _SignInState extends State<SignIn> {
               child: Column(
                 children: [
                   const SizedBox(height: 48),
-                  Material(   // login
+                  Material(   // login call button
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(30),
                     child: ListTile(
                       leading: Icon(Icons.account_circle, color: Colors.white, size: 30,),
                       title: Text('Login', style: TextStyle(color: Colors.white, fontSize: 23),),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => LoginPage()
+                        ),
+                        );
+                      },
                     ),
                   ),
 
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 9),
-                    child: Material(  // admin
+                    child: Material(  // admin call button
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(30),
                       child: ListTile(
@@ -57,7 +62,7 @@ class _SignInState extends State<SignIn> {
 
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 18),
-                    child: Material(   // Logout
+                    child: Material(   // Logout call button
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(30),
                       child: ListTile(
