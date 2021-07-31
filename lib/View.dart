@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 class view extends StatefulWidget {
   String title;
   String link;
-  view({this.title, this.link});
+  String description;
+  view({this.title, this.link, this.description});
 
   @override
-  _viewState createState() => _viewState(title, link);
+  _viewState createState() => _viewState(title, link, description);
 }
 
 class _viewState extends State<view> {
   String title;
   String link;
-  _viewState(this.title, this.link);
+  String description;
+  _viewState(this.title, this.link, this.description);
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,8 @@ class _viewState extends State<view> {
               fit: BoxFit.cover,
             )
           ),
+
+          //title
           Padding(
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 8),
             child: Container(
@@ -65,6 +69,27 @@ class _viewState extends State<view> {
               ),
             ),
           ),
+
+          //description
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 7),
+              decoration: BoxDecoration(
+                color: Color(0xFFFCEFEE),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Text(
+                description,
+                style: TextStyle(
+                  color: Color(0xFF663A14),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+
           ButtonBar(
             children: [
               // ignore: deprecated_member_use
@@ -81,21 +106,6 @@ class _viewState extends State<view> {
                   ),
                 ),
                   onPressed:() {},
-              ),
-              // ignore: deprecated_member_use
-              RaisedButton(
-                color: Color(0xFFE0B98F),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
-                ),
-                child: Text(
-                    'Share',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                ),
-                onPressed:() {},
               ),
             ],
           ),

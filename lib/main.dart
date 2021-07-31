@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mm_flutter_app/LatestPage.dart';
+import 'package:mm_flutter_app/SignInWidget.dart';
 import 'package:mm_flutter_app/TrendingPage.dart';
+import 'file:///C:/Users/asuto/AndroidStudioProjects/mm_flutter_app/lib/provider/DataView.dart';
+import 'file:///C:/Users/asuto/AndroidStudioProjects/mm_flutter_app/lib/provider/articles.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Flutter Tutorial',
+    debugShowCheckedModeBanner: false,
+    title: 'Flutter News',
     home: Homepage(),
   ));
 
@@ -19,14 +23,12 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+
       length: 2,
       child: Scaffold(
+        drawer: SignIn(),
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.menu, color: Colors.white,),
-            tooltip: 'Navigation menu',
-            onPressed: null,
-          ),
+
           backgroundColor: Color(0xFFF28482),
           title: Text(
             'NEWS',
@@ -40,7 +42,12 @@ class _HomepageState extends State<Homepage> {
             IconButton(
               icon: Icon(Icons.search, color: Colors.white,),
               tooltip: 'Search',
-              onPressed: null,
+              onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(
+                  builder: (context) => Article(),
+                ),
+                );
+              },
             ),
           ],
           bottom: TabBar(
